@@ -24,4 +24,12 @@ class Budget:
         total = sum(e.amount for e in self.expenses)
         print(f"총 지출: {total}원\n")
 
+    def max_expense(self):
+        if not self.expenses:
+            print("지출 내역이 없습니다.\n")
+            return
+        max_item = max(self.expenses, key=lambda e: e.amount)
+        print("\n[가장 큰 지출]")
+        print(max_item)
+        print()
 
