@@ -24,4 +24,12 @@ class Budget:
         total = sum(e.amount for e in self.expenses)
         print(f"총 지출: {total}원\n")
 
-
+    def delete_category(self, category):
+        original_count = len(self.expenses)
+        self.expenses = [e for e in self.expenses if e.category != category]
+        deleted_count = original_count - len(self.expenses)
+        
+        if deleted_count > 0:
+            print(f"해당 카테고리가 삭제되었습니다.\n")
+        else:
+            print(f"해당 카테고리가 없거나 지출이 없습니다.\n")
